@@ -28,7 +28,7 @@ class LeadsController < ApplicationController
     @lead['IsUnreadByOwner'] = true
     respond_to do |format|
       if @lead.save
-        format.html { redirect_to 'leads/new' }
+        format.html { redirect_to '/leads/new' }
         format.json { render json: @lead, status: :created, location: @lead }
         flash[:success] = "Salesforce lead was successfully created!"
       else

@@ -6,9 +6,14 @@ gem 'rails', '3.2.6'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
-  gem 'sqlite3'
+  gem 'pg'
 end
 
+gem 'databasedotcom'
+# gem 'databasedotcom-rails'
+gem 'therubyracer'
+gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass', '2.0.0'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
@@ -24,11 +29,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'foreman'
 
 group :production do
   gem 'pg'
-  gem 'thin'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

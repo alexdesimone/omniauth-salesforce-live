@@ -7,17 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="user_nav">
-		<% if current_user %>
-			Welcome <%= current_user.name %>!
-			<%= link_to "Sign out", signout_path %>
-		<% else %>
- 			<%= link_to "Sign in with Twitter", "/auth/twitter" %>
-			<%= link_to "Sign in with Facebook", "/auth/facebook" %>
-			<%= link_to "Sign in with Salesforce", "/auth/salesforce" %>
-		<% end %>
-		
-	</div>
+	<%= render 'layouts/header' %>
+	<div class="container">
 		<%= yield %>
+	</div>
 </body>
 </html>
+

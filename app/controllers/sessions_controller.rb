@@ -11,7 +11,9 @@ class SessionsController < ApplicationController
     client.materialize("Lead")
   end
   
-  def destroy 
+  def destroy
+    user = nil
+    client = nil 
     session[:user_id] = nil
     redirect_to root_url, :notice => "Signed out!"
   end

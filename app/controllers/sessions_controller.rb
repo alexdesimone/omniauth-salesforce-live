@@ -7,11 +7,12 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
     redirect_to '/leads/new', :notice => "Signed in!"
     client = Databasedotcom::Client.new
-    client.authenticate :token => user.token, :instance_url => user.instance_url
+    client.authenticate :token => user.token, :instance_url => user.instance_url, :refresh_token => user.refresh_token
     client.materialize("Lead")
   end
   
   def destroy
+    auth = nil
     user = nil
     client = nil 
     session[:user_id] = nil

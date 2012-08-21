@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :provider, :uid, :name, :email, :location, :phone, :owner_id, :token, :instance_url
+  attr_accessible :provider, :uid, :name, :email, :location, :phone, :owner_id, :token, :refresh_token, :instance_url
   
   def self.create_with_omniauth(auth)
     create! do |user|
@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
       user.phone = auth["info"]["phone"]
       user.owner_id = auth["extra"]["user_id"]
       user.token = auth["credentials"]["token"]
+      user.refresh_token = auth["credentials"]["refresh_token"]
       user.instance_url = auth["credentials"]["instance_url"]
       # user.save
     end

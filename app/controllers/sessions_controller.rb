@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
     user = nil
     client = nil 
     session[:user_id] = nil
+    client.materialize(nil)
     redirect_to root_url, :notice => "Signed out!"
   end
 end
